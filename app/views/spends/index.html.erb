@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spend for</th>
+      <th>Spend amount</th>
+      <th>Earned points</th>
+      <th><%= 'User' if current_user.has_role? :admin%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spends.each do |spend| %>
+      <tr>
+        <td><%= spend.spend_for %></td>
+        <td><%= spend.spend_amount %></td>
+        <td><%= spend.points %></td>
+        <td><%= spend.user.email if current_user.has_role? :admin%></td>
+        <td><%= link_to 'Show', spend %></td>
+        <td><%= link_to 'Edit', edit_spend_path(spend) %></td>
+        <td><%= link_to 'Destroy', spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spend', new_spend_path %>

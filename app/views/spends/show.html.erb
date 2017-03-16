@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spend for:</strong>
+  <%= @spend.spend_for %>
+</p>
+
+<p>
+  <strong>Spend amount:</strong>
+  <%= @spend.spend_amount %>
+</p>
+
+<p>
+  <strong>Earned Points:</strong>
+  <%= @spend.points %>
+</p>
+
+<% if current_user.has_role? :admin %>
+<p>
+  <strong>User:</strong>
+  <%= @spend.user.email %>
+</p>
+<%end%>
+
+<%= link_to 'Edit', edit_spend_path(@spend) %> |
+<%= link_to 'Back', spends_path %>

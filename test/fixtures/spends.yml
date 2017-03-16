@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spend_for: MyString
+  spend_amount: MyString
+  user: one
+
+two:
+  spend_for: MyString
+  spend_amount: MyString
+  user: two
